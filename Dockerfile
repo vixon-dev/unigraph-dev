@@ -10,6 +10,9 @@ RUN bash /tmp/nodesource_setup.sh
 RUN apt update && apt install -y nodejs
 RUN npm install yarn -g
 
+# Install build essential tools
+RUN apt update && apt install -y build-essential
+
 # Set up dgraph
 ADD https://github.com/unigraph-dev/dgraph/releases/latest/download/dgraph_linux_amd64 dgraph_linux_amd64
 RUN mkdir /opt/unigraph
